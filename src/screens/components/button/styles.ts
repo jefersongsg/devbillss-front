@@ -1,20 +1,31 @@
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import { theme } from "../../../styles/theme";
 
-export const Container = styled.button`
+type ContainerProps = {
+    $variant: 'default' | 'outline';
+};
+
+export const Container = styled.button<ContainerProps>`
     display: flex;
     align-items: center;
     justify-content: center;
     height: 2.25rem;
     border-radius: 0.25rem;
-    background-color: ${theme.colors.primary};
-    color: ${theme.colors.black};
+    background-color: ${(props) =>
+      props.$variant === 'default' ? theme.colors.primary : 'transparent'};
+    color:  ${(props) =>
+      props.$variant === 'default' ? theme.colors.black : theme.colors.primary};
     border: 0;
     padding: 0 0.75rem;
+    transform:  all 100ms;
+    
+    ${(props) =>
+      props.$variant === 'outline' && css`
+       border: 1px solid ${theme.colors.primary};
+       `}
 
     &:hover {
         background-color:${theme.colors.primaryDark};
         cursor: pointer;
-        transition: background-color 0.2s;
     }
 `;

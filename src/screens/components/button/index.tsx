@@ -1,9 +1,18 @@
+import { ComponentProps } from 'react';
 import { Container } from './styles';
 
-export function Button() {
+type ButtonProps = ComponentProps<'button'> & {
+    variant?: 'default' | 'outline';
+};
+
+export function Button({ 
+    children,
+    variant = 'default',
+    ...props
+}: ButtonProps) {
     return(
-        <Container>
-            Entrar
+        <Container{...props} $variant={variant}>
+           {children}
         </Container>
     )
 }
