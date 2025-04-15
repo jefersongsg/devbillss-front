@@ -1,4 +1,4 @@
-import { Filter, Header, Main, Section } from './styles';
+import { Filter, Header, Main, Section, Balance } from './styles';
 
 import { Title } from '../components/title';
 import { Logo } from '../components/logo';
@@ -6,6 +6,8 @@ import { Button } from '../components/button';
 import { Input } from '../components/input';
 import { InputGrup } from '../components/input/styles';
 import { ButtonIcon } from '../components/button-icon';
+import { Card } from '../components/card';
+
 
 export function Home() {
   return (
@@ -27,6 +29,11 @@ export function Home() {
         <ButtonIcon/>
        </InputGrup>
       </Filter>
+      <Balance>
+        <Card title='Saldo' amount={100000}/>      
+        <Card title='Saldo' amount={100000} variant='incomes'/>
+        <Card title='Saldo' amount={100000} variant='expenses'/>
+      </Balance>
       </Section>
     </Main>
     </>
